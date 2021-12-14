@@ -1,0 +1,149 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>API BCA</title>
+<style type="text/css">
+body {
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:12px;
+}
+
+.def, .def td, .def th, .def tr {
+	margin:0px;
+	padding:0px;
+}
+
+.def {
+	border-left:#ddf2fa solid 1px;
+	border-bottom:#ddf2fa solid 1px;
+}
+
+.def td, .def th {
+	border-top:#ddf2fa solid 1px;
+	border-right:#ddf2fa solid 1px;
+}
+
+.def th {
+	background-color:#999999;
+}
+
+.debet {
+	background-color:#FF9BA3;
+}
+
+.kredit {
+	background-color:#A8B3FF;
+}
+</style>
+<link rel="stylesheet" href="jquerycustom.css" />
+<script language="javascript" type="text/javascript" src="jquery.js"></script>
+<script language="javascript" type="text/javascript" src="jquerycustom.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+$(document).ready(function() {
+	$("#s").datepicker({minDate: -30, maxDate: 1, dateFormat: 'yy-mm-dd'});
+	$("#e").datepicker({minDate: -30, maxDate: 1, dateFormat: 'yy-mm-dd'});
+});
+-->
+</script>
+</head>
+<body>
+<form method="post" action="/">
+<table>
+<tr>
+<td>Tanggal Awal</td>
+<td>:</td>
+<td><input type="text" name="s" id="s" value="2021-12-14" /></td>
+</tr>
+<tr>
+<td>Tanggal Akhir</td>
+<td>:</td>
+<td><input type="text" name="e" id="e" value="2021-12-14" /></td>
+</tr>
+<tr>
+<td>User</td>
+<td>:</td>
+<td><input type="text" name="user" id="user" value="" /></td>
+</tr>
+<tr>
+<td>Password</td>
+<td>:</td>
+<td><input type="password" name="pass" id="pass" value="" /></td>
+</tr>
+<td>
+<td colspan="3"><input type="submit" value="Lihat" /></td>
+</td>
+</table>
+</form>
+<br />
+</body>
+</html>
+<style>
+thead{
+	background: #000;
+    color: #fff;
+}
+thead td{
+	padding:5px;
+}
+tbody td{
+	padding:5px;
+}
+.a {
+	background-color: #a8b3ff;
+}
+
+</style>
+<table cellpadding="0" cellspacing="2">
+	<thead>
+		<tr>
+			<td>Date</td>
+			<td>Keterangan</td>
+			<td>Nama</td>
+			<td>Koin Mutasi</td>
+			<td>Mutasi</td>
+			<td>Balance</td>
+		</tr>
+	</thead>
+	<tbody>
+				</tbody>  
+</table>
+<script type="text/javascript">
+	document.querySelectorAll('button[data-type="copy"]')
+	  .forEach(function(button){
+	      button.addEventListener('click', function(){
+	      let tanggal = this.parentNode.parentNode
+	        .querySelector('td[data-type="tanggal"]')
+	        .innerText;
+	      let keterangan = this.parentNode.parentNode
+	        .querySelector('td[data-type="keterangan"]')
+	        .innerText;
+	      let nama = this.parentNode.parentNode
+	        .querySelector('td[data-type="nama"]')
+	        .innerText;
+	      let nominal2 = this.parentNode.parentNode
+	        .querySelector('td[data-type="nominal2"]')
+	        .innerText;
+	      let nominal = this.parentNode.parentNode
+	        .querySelector('td[data-type="nominal"]')
+	        .innerText;
+	      let saldo = this.parentNode.parentNode
+	        .querySelector('td[data-type="saldo"]')
+	        .innerText;
+	      
+	      let tmp = document.createElement('textarea');
+	          tmp.value = nama + ' \t ' + nominal2 + ' \t ' + nominal;
+	          tmp.setAttribute('readonly', '');
+	          tmp.style.position = 'absolute';
+	          tmp.style.left = '-9999px';
+	          document.body.appendChild(tmp);
+	          tmp.select();
+	          document.execCommand('copy');
+	          document.body.removeChild(tmp);
+	          console.log(`${tmp.value} copied.`);
+	    });
+	});
+</script>
+        test
